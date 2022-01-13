@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 //components
 import {
   Nav,
+  Tabs,
   Logo,
   Footer,
   Homepage,
@@ -21,6 +22,7 @@ const App = () => {
       <GlobalStyles />
       <Logo />
       <Nav />
+      <Tabs />
       <Main>
         <Routes>
           <Route path="/" element={<Homepage />} />
@@ -37,6 +39,14 @@ const App = () => {
 
 //style
 const StyledApp = styled.section`
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  //
   display: grid;
   grid-template-columns: 2fr 7fr 3fr;
   grid-template-rows: 1fr 10fr 1fr;
@@ -44,9 +54,7 @@ const StyledApp = styled.section`
   padding: 3rem 3rem 0;
   color: white;
   min-height: 100vh;
-  background: #232526;
-  background: -webkit-linear-gradient(to right bottom, #414345, #232526);
-  background: linear-gradient(to right bottom, #414345, #232526);
+  background: var(--main-gradient);
   //
   @media (max-width: 1023px) {
     grid-template-columns: 3fr 6fr 3fr;

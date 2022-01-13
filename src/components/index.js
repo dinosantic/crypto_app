@@ -1,5 +1,6 @@
 export { default as Nav } from "./Nav";
 export { default as Logo } from "./Logo";
+export { default as Tabs } from "./Tabs";
 export { default as Footer } from "./Footer";
 export { default as Homepage } from "../pages/Homepage";
 export { default as Exchanges } from "../pages/Exchanges";

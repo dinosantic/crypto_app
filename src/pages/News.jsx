@@ -1,9 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
+//
+import { useGetCryptosQuery } from "../services/cryptoAPI";
 
 const News = () => {
+  const { data: newsList, isFetching } = useGetCryptosQuery();
+  if (isFetching) return "Fetching data...";
   return (
     <div>
-      <h1>News</h1>
+      <h2>News</h2>
     </div>
   );
 };

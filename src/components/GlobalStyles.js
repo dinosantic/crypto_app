@@ -4,7 +4,7 @@ const GlobalStyles = createGlobalStyle`
 :root {
     --main-gradient: linear-gradient(to right bottom, #414345, #232526);
     --main-bcg-color: 45, 47, 48;
-    --main-font: 'Abril Fatface', cursive;
+    --main-font: 'Poppins', sans-serif;
     --font-color: 255, 255, 255;
     --table-row-color: 55, 60, 61;
 }
@@ -27,6 +27,7 @@ const GlobalStyles = createGlobalStyle`
     body {
         width: 100%;
         color: var(--font-color);
+       font-family: var(--main-font);
         h1 {
             font-size: 3rem;
             font-weight: 900;

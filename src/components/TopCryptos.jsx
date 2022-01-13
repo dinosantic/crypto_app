@@ -1,6 +1,6 @@
 import React from "react";
 
-import millify from "millify";
+//import millify from "millify";
 import { Link } from "react-router-dom";
 //
 import { useGetTopCryptosQuery } from "../services/cryptoAPI";
@@ -11,7 +11,7 @@ const NewCrypto = () => {
   const { data: cryptosList, isFetching } = useGetTopCryptosQuery();
 
   const topCryptos = cryptosList?.data?.coins;
-  console.log(topCryptos);
+
   return (
     <Container>
       <ul>
@@ -36,7 +36,7 @@ const Container = styled.div`
     list-style-type: none;
     li {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 6fr 3fr 3fr;
       padding: 0.5rem;
       color: var(--font-color);
       background-color: var(--table-row-color);
@@ -44,13 +44,10 @@ const Container = styled.div`
       &:hover {
         background-color: rgba(var(--table-row-color), 0.8);
       }
-      span:nth-child(2) {
-        justify-self: center;
-      }
-
       img {
         display: inline;
         justify-self: center;
+        align-self: center;
         max-width: 18%;
       }
     }

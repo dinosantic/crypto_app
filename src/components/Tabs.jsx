@@ -49,29 +49,45 @@ const TabsContainer = styled.div`
   position: relative;
   word-break: break-all;
   border-radius: 10px;
-  background: var(--main-bcg-color);
+  background: transparent;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 20%;
+    z-index: 0;
+    transform: translate(-50%, -40%);
+    width: 270px;
+    height: 170px;
+    border-radius: 50%;
+    background: rgb(255, 255, 255);
+    filter: blur(70px);
+    opacity: 0.1;
+  }
 `;
 const BlockTabs = styled.div`
   display: flex;
 `;
 const TabButton = styled.button`
+  position: relative;
+  box-sizing: content-box;
+  width: 50%;
+  transition: width 0.3s ease-in-out;
   background: transparent;
   border: none;
   outline: none;
+  font-size: 1rem;
   text-align: center;
-  width: 50%;
-  transition: width 0.3s ease-in-out;
   cursor: pointer;
-  box-sizing: content-box;
-  position: relative;
   && {
     padding: 1em;
   }
   ${(props) =>
     props.active === "active" &&
     css`
-      width: 90%;
-      font-weight: 900;
+      width: 80%;
+      font-weight: 600;
       &::before {
         content: "";
         display: block;

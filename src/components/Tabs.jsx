@@ -57,7 +57,7 @@ const TabsContainer = styled.div`
     top: 0;
     left: 20%;
     z-index: 0;
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -50%);
     width: 270px;
     height: 170px;
     border-radius: 50%;

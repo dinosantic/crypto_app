@@ -51,7 +51,6 @@ const Container = styled.div`
         max-width: 18%;
       }
     }
-
     li:nth-of-type(odd) {
       background-color: rgba(var(--table-row-color), 0.3);
       &:hover {

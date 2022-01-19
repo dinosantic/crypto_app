@@ -8,7 +8,8 @@ import styled from "styled-components";
 import Table from "../components/table/Table";
 
 const CryptoC = () => {
-  const { data: cryptosList, isFetching } = useGetCryptosQuery();
+  const { data: cryptosList, isFetching } = useGetCryptosQuery(100);
+  //
   const [cryptos, setCryptos] = useState(cryptosList?.data?.coins);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -26,10 +27,12 @@ const CryptoC = () => {
   return (
     <div>
       <h2>CryptoC</h2>
-      <Table
-        tableData={cryptos}
-        onChangeVale={(e) => setSearchTerm(e.target.value)}
-      />
+      {cryptos && (
+        <Table
+          tableData={cryptos}
+          onChangeVale={(e) => setSearchTerm(e.target.value)}
+        />
+      )}
     </div>
   );
 };

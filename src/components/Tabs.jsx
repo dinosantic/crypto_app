@@ -20,7 +20,7 @@ const Tabs = () => {
         <TabButton
           active={toggleState === 1 ? "active" : ""}
           onClick={() => toggleTab(1)}>
-          Top 10 crypto
+          Crypto
         </TabButton>
         <TabButton
           active={toggleState === 2 ? "active" : ""}
@@ -30,6 +30,7 @@ const Tabs = () => {
       </BlockTabs>
       <ContentTabs>
         <Content active={toggleState === 1 ? "active" : ""}>
+          <p>Top 10 crypto</p>
           <TopCryptos />
           <Link to="/cryptoc">Show more</Link>
         </Content>
@@ -86,7 +87,7 @@ const TabButton = styled.button`
   ${(props) =>
     props.active === "active" &&
     css`
-      width: 80%;
+      width: 70%;
       font-weight: 600;
       &::before {
         content: "";

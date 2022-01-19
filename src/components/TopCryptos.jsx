@@ -3,12 +3,12 @@ import React from "react";
 //import millify from "millify";
 import { Link } from "react-router-dom";
 //
-import { useGetTopCryptosQuery } from "../services/cryptoAPI";
+import { useGetCryptosQuery } from "../services/cryptoAPI";
 //style
 import styled from "styled-components";
 
-const NewCrypto = () => {
-  const { data: cryptosList, isFetching } = useGetTopCryptosQuery();
+const TopCrypto = () => {
+  const { data: cryptosList, isFetching } = useGetCryptosQuery(10);
 
   const topCryptos = cryptosList?.data?.coins;
 
@@ -60,4 +60,4 @@ const Container = styled.div`
   }
 `;
 
-export default NewCrypto;
+export default TopCrypto;

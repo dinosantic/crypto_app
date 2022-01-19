@@ -56,24 +56,33 @@ const TableWrap = styled.div`
   overflow-x: hidden;
 
   &::-webkit-scrollbar {
-    width: 0.5rem;
+    width: 0.2rem;
   }
   &::-webkit-scrollbar-thumb {
     background-color: white;
   }
   &::-webkit-scrollbar-track {
-    background-color: rgba(var(--table-row-color));
+    background-color: transparent;
   }
   input {
     position: sticky;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 30px;
     background-color: rgba(var(--table-row-color));
     outline: none;
     border: none;
+    border-bottom: 2px solid rgba(var(--font-color), 0.1);
     z-index: 2;
-    width: 100%;
-    height: 30px;
+    color: rgb(var(--font-color));
+    ::placeholder {
+      color: rgb(var(--font-color));
+      opacity: 1;
+    }
+    ::-ms-input-placeholder {
+      color: rgb(var(--font-color));
+    }
   }
 `;
 const StyledTable = styled.table`

@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { useTable } from "react-table";
 import { COLUMNS } from "./columns";
+import { useNavigate } from "react-router-dom";
 //style
 import styled from "styled-components";
 
@@ -15,7 +16,11 @@ const Table = ({ tableData, onChangeVale }) => {
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     table;
-
+  //
+  const navigate = useNavigate();
+  const handleRowClick = (row) => {
+    navigate(`/crypto/${row.original.uuid}`);
+  };
   return (
     <TableWrap>
       <input placeholder="Search" onChange={onChangeVale} />
@@ -33,7 +38,7 @@ const Table = ({ tableData, onChangeVale }) => {
           {rows.map((row) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()}>
+              <tr {...row.getRowProps()} onClick={() => handleRowClick(row)}>
                 {row.cells.map((cell) => {
                   return (
                     <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
@@ -104,7 +109,11 @@ const StyledTable = styled.table`
     top: 5%;
     left: 0;
     text-align: left;
-    background-color: rgba(var(--table-row-color));
+    background-color: rgb(var(--table-row-color));
+  }
+  a {
+    text-decoration: none;
+    color: rgb(var(--font-color));
   }
 `;
 

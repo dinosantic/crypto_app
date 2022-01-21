@@ -1,6 +1,4 @@
 import React from "react";
-
-//import millify from "millify";
 import { Link } from "react-router-dom";
 //
 import { useGetCryptosQuery } from "../services/cryptoAPI";
@@ -14,6 +12,7 @@ const TopCrypto = () => {
 
   return (
     <Container>
+      <p>Top 10 crypto</p>
       <ul>
         {topCryptos &&
           topCryptos.map((crypto) => (
@@ -24,11 +23,13 @@ const TopCrypto = () => {
             </li>
           ))}
       </ul>
+      <Link to="/cryptoc">Show more</Link>
     </Container>
   );
 };
 const Container = styled.div`
   width: 100%;
+  padding: 0 1rem;
   && {
     margin-bottom: 1rem;
   }

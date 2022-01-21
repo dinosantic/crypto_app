@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import moment from "moment";
 import styled from "styled-components";
 import demoCrypto from "../icons/demoCrypto.jpg";
@@ -10,11 +9,10 @@ const News = () => {
   const { data: newsList, isFetching } = useGetCryptoNewsQuery({
     newsCategory: "Cryptocurrency",
     count: 50,
+    freshness: "Month",
   });
 
-  console.log(newsList?.value);
-
-  //if (isFetching) return "Fetching data...";
+  if (isFetching) return "Fetching data...";
 
   return (
     <StyledNews>
@@ -49,7 +47,9 @@ const AllNews = styled.div`
   max-height: 500px;
   overflow-x: scroll;
   overflow-x: hidden;
-  padding-right: 0.5rem;
+  && {
+    padding-right: 0.5rem;
+  }
   &::-webkit-scrollbar {
     width: 0.2rem;
   }
@@ -68,7 +68,10 @@ const Card = styled.div`
   grid-template-columns: 1fr;
   row-gap: 1rem;
   border: 1px solid rgba(var(--font-color), 0.1);
-  padding: 1rem;
+  && {
+    padding: 1rem;
+  }
+
   button {
     width: 100px;
     padding: 0.5em 1em;

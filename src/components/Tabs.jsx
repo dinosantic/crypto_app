@@ -30,13 +30,10 @@ const Tabs = () => {
       </BlockTabs>
       <ContentTabs>
         <Content active={toggleState === 1 ? "active" : ""}>
-          <p>Top 10 crypto</p>
           <TopCryptos />
-          <Link to="/cryptoc">Show more</Link>
         </Content>
         <Content active={toggleState === 2 ? "active" : ""}>
           <TopNews />
-          <Link to="/news">Show more</Link>
         </Content>
       </ContentTabs>
     </TabsContainer>

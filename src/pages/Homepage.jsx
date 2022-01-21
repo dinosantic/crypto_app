@@ -10,13 +10,11 @@ const Homepage = () => {
   const { data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
 
-  //console.log(data);
-
   if (isFetching) return "Fetching data...";
 
   return (
     <StyledHomepage>
-      <h1>Crypto</h1>
+      <h2>Crypto</h2>
       <StyledCrypto>
         {Object.entries(globalStats).map(([key, value]) => (
           <SingleItem key={key}>
@@ -47,7 +45,6 @@ const StyledCrypto = styled.div`
   grid-gap: 1rem;
 `;
 const SingleItem = styled.div`
-  // padding: 2rem;
   > p::first-letter {
     text-transform: uppercase;
   }

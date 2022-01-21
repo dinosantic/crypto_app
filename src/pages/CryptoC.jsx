@@ -31,6 +31,7 @@ const CryptoC = () => {
         <Table
           tableData={cryptos}
           onChangeVale={(e) => setSearchTerm(e.target.value)}
+          // currency={}
         />
       )}
     </div>

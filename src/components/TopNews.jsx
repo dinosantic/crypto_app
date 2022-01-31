@@ -1,20 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import moment from "moment";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 //
 import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi";
-import { useEffect } from "react";
 
 const TopNews = () => {
-  const { data: newsList, isFetching } = useGetCryptoNewsQuery({
+  const { data: newsList } = useGetCryptoNewsQuery({
     newsCategory: "Cryptocurrency",
     count: 5,
     freshness: "Day",
   });
-  useEffect(() => {
-    console.log(newsList);
-  }, []);
 
   return (
     <StyledTopNews>
@@ -34,7 +30,9 @@ const TopNews = () => {
             </CardDetails>
           </Card>
         ))}
-      <Link to="/news">Show more</Link>
+      <Link className="show-more" to="/news">
+        Show more
+      </Link>
     </StyledTopNews>
   );
 };
@@ -57,6 +55,20 @@ const StyledTopNews = styled.section`
   &::-webkit-scrollbar-track {
     background-color: transparent;
   }
+  a.show-more {
+    font-size: 14px;
+    text-decoration: none;
+    color: rgb(var(--font-color));
+    background: transparent;
+    padding: 0.5em;
+    border: 1px solid rgba(var(--font-color), 0.1);
+    border-radius: 0px;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    &:hover {
+      color: rgb(var(--table-row-color));
+      background-color: rgb(var(--font-color));
+    }
+  }
 `;
 
 const Card = styled.div`
@@ -74,11 +86,19 @@ const Card = styled.div`
     border: 1px solid rgba(var(--font-color), 0.1);
     outline: none;
     background: transparent;
+    transition: background-color 0.3s ease-in-out;
+    &:hover {
+      background-color: rgb(var(--font-color));
+    }
     a {
       text-decoration: none;
       padding: 0;
       color: rgb(var(--font-color));
       background: transparent;
+      transition: color 0.3s ease-in-out;
+      &:hover {
+        color: rgb(var(--table-row-color));
+      }
     }
   }
 `;

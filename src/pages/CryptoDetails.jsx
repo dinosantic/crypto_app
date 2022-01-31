@@ -5,28 +5,66 @@ import millify from "millify";
 import { useGetCryptoDetailsQuery } from "../services/cryptoAPI";
 //
 import styled from "styled-components";
+//
+import { Line } from "react-chartjs-2";
+import {
+  Chart,
+  ArcElement,
+  Legend,
+  Title,
+  PointElement,
+  LinearScale,
+  CategoryScale,
+  LineElement,
+} from "chart.js";
+Chart.register(
+  ArcElement,
+  Legend,
+  Title,
+  PointElement,
+  LinearScale,
+  CategoryScale,
+  LineElement
+);
 
 const CryptoDetails = () => {
   const { coinId } = useParams();
   const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
   //
   const itemDetails = data?.data?.coin;
-  console.log(itemDetails);
+
+  if (isFetching) return "Fetching data...";
+
+  const chartData = {
+    labels: Object.keys(itemDetails.sparkline),
+    datasets: [
+      {
+        label: "Prices in USD",
+        data: itemDetails.sparkline,
+        backgroundColor: itemDetails.color || "#ffbb11",
+        borderColor: "#ecf0f1",
+        borderWidth: 1,
+      },
+    ],
+  };
 
   return (
     <div>
       <h2>Crypto Details </h2>
       {data && (
-        <Card>
-          <p>
-            Name: {itemDetails.name}
-            <span>{` (${itemDetails.symbol})`}</span>
-          </p>
-          <p>Market cap: {millify(itemDetails.marketCap)}</p>
-          <p>Price: {millify(itemDetails.price)}</p>
-          <p>Number of exchanges: {millify(itemDetails.numberOfExchanges)}</p>
-          <p>Number of markets: {millify(itemDetails.numberOfMarkets)}</p>
-        </Card>
+        <div>
+          <Card>
+            <p>
+              Name: {itemDetails.name}
+              <span>{` (${itemDetails.symbol})`}</span>
+            </p>
+            <p>Market cap: {millify(itemDetails.marketCap)}</p>
+            <p>Price: {millify(itemDetails.price)}</p>
+            <p>Number of exchanges: {millify(itemDetails.numberOfExchanges)}</p>
+            <p>Number of markets: {millify(itemDetails.numberOfMarkets)}</p>
+          </Card>
+          <Line data={chartData} />
+        </div>
       )}
     </div>
   );

@@ -1,6 +1,5 @@
 import React from "react";
 import millify from "millify";
-import { Link } from "react-router-dom";
 //
 import { useGetCryptosQuery } from "../services/cryptoAPI";
 //style
@@ -17,16 +16,18 @@ const Homepage = () => {
       <h2>Crypto</h2>
       <StyledCrypto>
         {Object.entries(globalStats).map(([key, value]) => (
-          <SingleItem key={key}>
-            <p>
-              {key
-                .match(/([A-Z]?[^A-Z]*)/g)
-                .slice(0, -1)
-                .join(" ")
-                .replace("24h", " 24h")}
-            </p>
-            <p>{millify(value)}</p>
-          </SingleItem>
+          <div>
+            <SingleItem key={key}>
+              <p>
+                {key
+                  .match(/([A-Z]?[^A-Z]*)/g)
+                  .slice(0, -1)
+                  .join(" ")
+                  .replace("24h", " 24h")}
+              </p>
+              <p>{millify(value)}</p>
+            </SingleItem>
+          </div>
         ))}
       </StyledCrypto>
     </StyledHomepage>

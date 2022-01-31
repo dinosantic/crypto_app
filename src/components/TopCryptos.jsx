@@ -11,7 +11,7 @@ const TopCrypto = () => {
   const topCryptos = cryptosList?.data?.coins;
 
   return (
-    <Container>
+    <Container className="container">
       <p>Top 10 crypto</p>
       <ul>
         {topCryptos &&
@@ -25,14 +25,17 @@ const TopCrypto = () => {
             </li>
           ))}
       </ul>
-      <Link to="/cryptoc">Show more</Link>
+      <Link className="show-more" to="/cryptoc">
+        Show more
+      </Link>
     </Container>
   );
 };
 const Container = styled.div`
   width: 100%;
-  padding: 0 1rem;
+
   && {
+    padding: 0 1rem;
     margin-bottom: 1rem;
   }
   ul {
@@ -70,7 +73,7 @@ const Container = styled.div`
       }
     }
   }
-  a {
+  a.show-more {
     font-size: 14px;
     text-decoration: none;
     color: rgb(var(--font-color));

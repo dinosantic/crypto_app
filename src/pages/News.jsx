@@ -81,9 +81,17 @@ const Card = styled.div`
     border: 1px solid rgba(var(--font-color), 0.1);
     outline: none;
     background: transparent;
+    transition: background-color 0.3s ease-in-out;
+    &:hover {
+      background-color: rgb(var(--font-color));
+      a {
+        color: rgb(var(--table-row-color));
+      }
+    }
     a {
       text-decoration: none;
       color: rgb(var(--font-color));
+      transition: color 0.3s ease-in-out;
     }
   }
 `;

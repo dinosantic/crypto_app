@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
     --main-font: 'Poppins', sans-serif;
     --font-color: 255, 255, 255;
     --table-row-color: 55, 60, 61;
+    --box-shadow: 0px 0px 7px 2px rgba(255, 255, 255, 0.02);
 }
     *{
         margin: 0;

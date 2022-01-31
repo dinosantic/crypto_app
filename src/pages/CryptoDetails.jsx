@@ -49,31 +49,38 @@ const CryptoDetails = () => {
   };
 
   return (
-    <div>
+    <>
       <h2>Crypto Details </h2>
       {data && (
-        <div>
+        <>
           <Card>
             <p>
               Name: {itemDetails.name}
               <span>{` (${itemDetails.symbol})`}</span>
             </p>
             <p>Market cap: {millify(itemDetails.marketCap)}</p>
-            <p>Price: {millify(itemDetails.price)}</p>
             <p>Number of exchanges: {millify(itemDetails.numberOfExchanges)}</p>
             <p>Number of markets: {millify(itemDetails.numberOfMarkets)}</p>
           </Card>
           <Line data={chartData} />
-        </div>
+        </>
       )}
-    </div>
+    </>
   );
 };
-const StyledDetails = styled.div``;
+
 const Card = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-gap: 1rem;
+  margin: 2rem 0;
+
+  p {
+    padding: 1em;
+    border: 1px solid rgba(var(--font-color), 0.1);
+    -webkit-box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow);
+  }
 `;
 
 export default CryptoDetails;

@@ -67,7 +67,10 @@ const Card = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 1rem;
+  background-color: rgba(var(--main-bcg-color), 0.3);
   border: 1px solid rgba(var(--font-color), 0.1);
+  -webkit-box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow);
   && {
     padding: 1rem;
   }

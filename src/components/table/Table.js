@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 //style
 import styled from "styled-components";
 
-const Table = ({ tableData, onChangeVale }) => {
+const Table = ({ tableData, onChangeValue }) => {
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => tableData, [tableData]);
 
@@ -23,7 +23,7 @@ const Table = ({ tableData, onChangeVale }) => {
   };
   return (
     <TableWrap>
-      <input placeholder="Search" onChange={onChangeVale} />
+      <input placeholder="Search" onChange={onChangeValue} />
       <StyledTable {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
@@ -75,18 +75,20 @@ const TableWrap = styled.div`
     left: 0;
     width: 100%;
     height: 30px;
-    background-color: rgba(var(--table-row-color));
+    //background-color: rgba(var(--table-row-color));
+    //background: var(--main-gradient);
+    background-color: #e6e6e3;
     outline: none;
     border: none;
     border-bottom: 2px solid rgba(var(--font-color), 0.1);
     z-index: 2;
-    color: rgb(var(--font-color));
+    color: rgba(var(--table-row-color));
     ::placeholder {
-      color: rgb(var(--font-color));
+      color: rgba(var(--table-row-color));
       opacity: 1;
     }
     ::-ms-input-placeholder {
-      color: rgb(var(--font-color));
+      color: rgba(var(--table-row-color));
     }
   }
 `;
@@ -109,11 +111,11 @@ const StyledTable = styled.table`
     top: 5%;
     left: 0;
     text-align: left;
+    padding: 1rem 0;
     background-color: rgb(var(--table-row-color));
-  }
-  a {
-    text-decoration: none;
-    color: rgb(var(--font-color));
+    th {
+      padding: 0.3rem 0;
+    }
   }
 `;
 

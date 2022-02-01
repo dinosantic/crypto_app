@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { HomeIcon, NewsIcon, ExchangeIcon, CryptoIcon } from "../icons";
+import { HomeIcon, NewsIcon, CryptoIcon } from "../icons";
 //style
 import styled from "styled-components";
 
@@ -16,10 +16,6 @@ const Nav = () => {
         <NavLink to="/cryptoc">
           <CryptoIcon />
           CryptoC
-        </NavLink>
-        <NavLink to="/exchange">
-          <ExchangeIcon />
-          Exchanges
         </NavLink>
         <NavLink to="/news">
           <NewsIcon />

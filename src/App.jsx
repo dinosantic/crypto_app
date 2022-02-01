@@ -7,7 +7,6 @@ import {
   Logo,
   Footer,
   Homepage,
-  Exchanges,
   CryptoC,
   CryptoDetails,
   News,
@@ -26,7 +25,6 @@ const App = () => {
       <Main>
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/exchange" element={<Exchanges />} />
           <Route path="/cryptoc" element={<CryptoC />} />
           <Route path="/crypto/:coinId" element={<CryptoDetails />} />
           <Route path="/news" element={<News />} />

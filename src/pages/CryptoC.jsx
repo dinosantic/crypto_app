@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 //
 import { useGetCryptosQuery } from "../services/cryptoAPI";
-//style
-import styled from "styled-components";
 //table
 import Table from "../components/table/Table";
 
@@ -30,8 +27,7 @@ const CryptoC = () => {
       {cryptos && (
         <Table
           tableData={cryptos}
-          onChangeVale={(e) => setSearchTerm(e.target.value)}
-          // currency={}
+          onChangeValue={(e) => setSearchTerm(e.target.value)}
         />
       )}
     </div>

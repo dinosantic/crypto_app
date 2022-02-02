@@ -8,6 +8,7 @@ const GlobalStyles = createGlobalStyle`
     --font-color: 255, 255, 255;
     --table-row-color: 55, 60, 61;
     --box-shadow: 0px 0px 7px 2px rgba(255, 255, 255, 0.02);
+    --hover-shadow: 0px 0px 8px 3px rgba(255, 255, 255, 0.1);
 }
     *{
         margin: 0;

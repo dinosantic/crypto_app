@@ -44,7 +44,7 @@ const StyledNews = styled.section``;
 const AllNews = styled.div`
   position: relative;
   max-width: 100%;
-  max-height: 500px;
+  max-height: 62vh;
   overflow-x: scroll;
   overflow-x: hidden;
   && {
@@ -71,8 +71,15 @@ const Card = styled.div`
   border: 1px solid rgba(var(--font-color), 0.1);
   -webkit-box-shadow: var(--box-shadow);
   box-shadow: var(--box-shadow);
+  transition: border 0.2s ease-in-out, transform 0.2s ease-in-out;
   && {
     padding: 1rem;
+  }
+  &:hover {
+    transform: scale(0.95);
+    border: 1px solid rgba(var(--font-color));
+    -webkit-box-shadow: var(--hover-shadow);
+    box-shadow: var(--hover-shadow);
   }
 
   button {

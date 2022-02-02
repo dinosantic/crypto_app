@@ -30,19 +30,25 @@ const StyledNav = styled.nav`
   grid-row: 2/3;
   display: flex;
   flex-direction: column;
-  padding-top: 5rem;
   font-weight: 900;
+  && {
+    padding-top: 5rem;
+  }
   ul {
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
     padding-top: 2rem;
+
     a {
       display: flex;
-      align-items: end;
+      align-items: center;
       position: relative;
       font-size: 1.3rem;
       color: gray;
+      &:hover {
+        color: whitesmoke;
+      }
       ::after {
         content: "";
         position: absolute;

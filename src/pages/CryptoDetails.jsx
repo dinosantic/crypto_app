@@ -73,13 +73,22 @@ const Card = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-gap: 1rem;
-  margin: 2rem 0;
+  && {
+    margin: 2rem 0;
+  }
 
   p {
     padding: 1em;
     border: 1px solid rgba(var(--font-color), 0.1);
     -webkit-box-shadow: var(--box-shadow);
     box-shadow: var(--box-shadow);
+    transition: border 0.2s ease-in-out, transform 0.2s ease-in-out;
+    &:hover {
+      transform: scale(0.95);
+      border: 1px solid rgba(var(--font-color));
+      -webkit-box-shadow: var(--hover-shadow);
+      box-shadow: var(--hover-shadow);
+    }
   }
 `;
 

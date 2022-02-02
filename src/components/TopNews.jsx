@@ -40,7 +40,7 @@ const TopNews = () => {
 const StyledTopNews = styled.section`
   position: relative;
   max-width: 100%;
-  max-height: 500px;
+  max-height: 65vh;
   overflow-x: scroll;
   overflow-x: hidden;
   && {
@@ -76,9 +76,16 @@ const Card = styled.div`
   grid-template-columns: 1fr;
   row-gap: 1rem;
   border: 1px solid rgba(var(--font-color), 0.1);
+  transition: border 0.2s ease-in-out, transform 0.2s ease-in-out;
   && {
     padding: 1rem;
     margin: 1rem 0;
+  }
+  &:hover {
+    transform: scale(0.95);
+    border: 1px solid rgba(var(--font-color));
+    -webkit-box-shadow: var(--hover-shadow);
+    box-shadow: var(--hover-shadow);
   }
   button {
     width: 100px;

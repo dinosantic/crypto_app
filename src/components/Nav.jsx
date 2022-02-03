@@ -7,7 +7,6 @@ import styled from "styled-components";
 const Nav = () => {
   return (
     <StyledNav>
-      <p>MENU</p>
       <ul>
         <NavLink to="/">
           <HomeIcon />

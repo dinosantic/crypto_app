@@ -6,6 +6,8 @@ import { pageTransition } from "../components/pageTransition";
 import { useGetCryptosQuery } from "../services/cryptoAPI";
 //table
 import Table from "../components/table/Table";
+//
+import Loader from "../components/Loader";
 
 const CryptoC = () => {
   const { data: cryptosList, isFetching } = useGetCryptosQuery(100);
@@ -22,7 +24,9 @@ const CryptoC = () => {
     setCryptos(filteredData);
   }, [cryptosList, searchTerm]);
 
-  if (isFetching) return "Fetching data...";
+  if (isFetching) {
+    return <Loader />;
+  }
 
   return (
     <motion.div

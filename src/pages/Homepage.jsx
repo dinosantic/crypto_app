@@ -7,12 +7,16 @@ import { pageTransition } from "../components/pageTransition";
 import { useGetCryptosQuery } from "../services/cryptoAPI";
 //style
 import styled from "styled-components";
+//
+import Loader from "../components/Loader";
 
 const Homepage = () => {
   const { data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
 
-  if (isFetching) return "Fetching data...";
+  if (isFetching) {
+    return <Loader />;
+  }
 
   return (
     <StyledHomepage

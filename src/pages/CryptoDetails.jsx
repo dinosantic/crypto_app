@@ -1,5 +1,4 @@
 import React from "react";
-import HTMLReactParser from "html-react-parser";
 import { useParams } from "react-router-dom";
 import millify from "millify";
 import { useGetCryptoDetailsQuery } from "../services/cryptoAPI";
@@ -7,9 +6,12 @@ import { useGetCryptoDetailsQuery } from "../services/cryptoAPI";
 import { motion } from "framer-motion";
 import { pageTransition } from "../components/pageTransition";
 //
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 //
 import { Line } from "react-chartjs-2";
+//
+import Loader from "../components/Loader";
+
 import {
   Chart,
   ArcElement,
@@ -36,7 +38,9 @@ const CryptoDetails = () => {
   //
   const itemDetails = data?.data?.coin;
 
-  if (isFetching) return "Fetching data...";
+  if (isFetching) {
+    return <Loader />;
+  }
 
   const chartData = {
     labels: Object.keys(itemDetails.sparkline),

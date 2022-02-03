@@ -8,6 +8,8 @@ import styled from "styled-components";
 import demoCrypto from "../icons/demoCrypto.jpg";
 //
 import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi";
+//
+import Loader from "../components/Loader";
 
 const News = () => {
   const { data: newsList, isFetching } = useGetCryptoNewsQuery({
@@ -16,7 +18,9 @@ const News = () => {
     freshness: "Month",
   });
 
-  if (isFetching) return "Fetching data...";
+  if (isFetching) {
+    return <Loader />;
+  }
 
   return (
     <StyledNews

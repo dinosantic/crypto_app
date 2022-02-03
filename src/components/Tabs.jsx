@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 //style
 import styled, { css } from "styled-components";
 //components
 import TopCryptos from "./TopCryptos";
 import TopNews from "./TopNews";
-///
 
 const Tabs = () => {
   const [toggleState, setToggleState] = useState(1);
@@ -104,10 +102,14 @@ const ContentTabs = styled.div`
   flex-grow: 1;
 `;
 const Content = styled.div`
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
   padding-top: 1rem;
   width: 100%;
   height: 100%;
-  display: none;
+  //
+  transition: opacity 0.5s ease-in-out;
   a {
     text-decoration: none;
     color: rgb(45, 47, 48);
@@ -115,11 +117,11 @@ const Content = styled.div`
     background: white;
     border-radius: 10px;
   }
-
   ${(props) =>
     props.active === "active" &&
     css`
-      display: block;
+      visibility: visible;
+      opacity: 1;
     `}
 `;
 

@@ -1,5 +1,9 @@
 import React from "react";
 import moment from "moment";
+//animation
+import { motion } from "framer-motion";
+import { pageTransition } from "../components/pageTransition";
+//
 import styled from "styled-components";
 import demoCrypto from "../icons/demoCrypto.jpg";
 //
@@ -15,7 +19,11 @@ const News = () => {
   if (isFetching) return "Fetching data...";
 
   return (
-    <StyledNews>
+    <StyledNews
+      exit="exit"
+      variants={pageTransition}
+      initial="hidden"
+      animate="show">
       <h2>News</h2>
       <AllNews>
         {newsList &&
@@ -40,12 +48,11 @@ const News = () => {
     </StyledNews>
   );
 };
-const StyledNews = styled.section``;
+const StyledNews = styled(motion.section)``;
 const AllNews = styled.div`
   position: relative;
   max-width: 100%;
   max-height: 62vh;
-  overflow-x: scroll;
   overflow-x: hidden;
   && {
     padding-right: 0.5rem;

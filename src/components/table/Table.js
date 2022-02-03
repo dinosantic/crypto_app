@@ -56,8 +56,7 @@ const TableWrap = styled.div`
   display: block;
   position: relative;
   max-width: 100%;
-  max-height: 500px;
-  overflow-x: scroll;
+  max-height: 62vh;
   overflow-x: hidden;
 
   &::-webkit-scrollbar {
@@ -75,8 +74,6 @@ const TableWrap = styled.div`
     left: 0;
     width: 100%;
     height: 30px;
-    //background-color: rgba(var(--table-row-color));
-    //background: var(--main-gradient);
     background-color: #e6e6e3;
     outline: none;
     border: none;

@@ -1,5 +1,6 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 //components
 import {
   Nav,
@@ -16,6 +17,8 @@ import styled from "styled-components";
 import GlobalStyles from "./components/GlobalStyles";
 
 const App = () => {
+  const location = useLocation();
+
   return (
     <StyledApp>
       <GlobalStyles />
@@ -23,12 +26,14 @@ const App = () => {
       <Nav />
       <Tabs />
       <Main>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/cryptoc" element={<CryptoC />} />
-          <Route path="/crypto/:coinId" element={<CryptoDetails />} />
-          <Route path="/news" element={<News />} />
-        </Routes>
+        <AnimatePresence exitBeforeEnter>
+          <Routes key={location.pathname} location={location}>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/cryptoc" element={<CryptoC />} />
+            <Route path="/crypto/:coinId" element={<CryptoDetails />} />
+            <Route path="/news" element={<News />} />
+          </Routes>
+        </AnimatePresence>
       </Main>
       <Footer />
     </StyledApp>

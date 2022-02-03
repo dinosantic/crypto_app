@@ -31,9 +31,8 @@ const TopCrypto = () => {
     </Container>
   );
 };
-const Container = styled.div`
+const Container = styled.section`
   width: 100%;
-
   && {
     padding: 0 1rem;
     margin-bottom: 1rem;

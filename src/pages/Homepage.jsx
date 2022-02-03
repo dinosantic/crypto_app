@@ -1,5 +1,8 @@
 import React from "react";
 import millify from "millify";
+//animation
+import { motion } from "framer-motion";
+import { pageTransition } from "../components/pageTransition";
 //
 import { useGetCryptosQuery } from "../services/cryptoAPI";
 //style
@@ -11,10 +14,12 @@ const Homepage = () => {
 
   if (isFetching) return "Fetching data...";
 
-  console.log(globalStats);
-
   return (
-    <StyledHomepage>
+    <StyledHomepage
+      exit="exit"
+      variants={pageTransition}
+      initial="hidden"
+      animate="show">
       <h2>Crypto</h2>
       <StyledCrypto>
         {Object.entries(globalStats).map(([key, value]) => (
@@ -33,7 +38,7 @@ const Homepage = () => {
     </StyledHomepage>
   );
 };
-const StyledHomepage = styled.section`
+const StyledHomepage = styled(motion.section)`
   display: grid;
   h1 {
     padding-bottom: 2rem;

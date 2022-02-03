@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+//animation
+import { motion } from "framer-motion";
+import { pageTransition } from "../components/pageTransition";
 //
 import { useGetCryptosQuery } from "../services/cryptoAPI";
 //table
@@ -22,7 +25,11 @@ const CryptoC = () => {
   if (isFetching) return "Fetching data...";
 
   return (
-    <div>
+    <motion.div
+      exit="exit"
+      variants={pageTransition}
+      initial="hidden"
+      animate="show">
       <h2>CryptoC</h2>
       {cryptos && (
         <Table
@@ -30,7 +37,7 @@ const CryptoC = () => {
           onChangeValue={(e) => setSearchTerm(e.target.value)}
         />
       )}
-    </div>
+    </motion.div>
   );
 };
 

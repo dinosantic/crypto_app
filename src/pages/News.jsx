@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { pageTransition } from "../components/pageTransition";
 //
 import styled from "styled-components";
+import breakpoint from "../components/breakpoints";
 import demoCrypto from "../icons/demoCrypto.jpg";
 //
 import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi";
@@ -56,8 +57,11 @@ const StyledNews = styled(motion.section)``;
 const AllNews = styled.div`
   position: relative;
   max-width: 100%;
-  max-height: 62vh;
+  max-height: 80vh;
   overflow-x: hidden;
+  @media only screen and (min-width: ${breakpoint.size.laptop}) {
+    max-height: 62vh;
+  }
   && {
     padding-right: 0.5rem;
   }

@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { pageTransition } from "../components/pageTransition";
 //
 import styled from "styled-components";
+import breakpoint from "../components/breakpoints";
 //
 import { Line } from "react-chartjs-2";
 //
@@ -83,10 +84,12 @@ const CryptoDetails = () => {
   );
 };
 const DataWrapper = styled.div`
-  position: relative;
-  max-width: 100%;
-  max-height: 62vh;
-  overflow-x: hidden;
+  @media only screen and (min-width: ${breakpoint.size.laptop}) {
+    position: relative;
+    max-width: 100%;
+    max-height: 62vh;
+    overflow-x: hidden;
+  }
   && {
     padding-right: 0.5rem;
   }

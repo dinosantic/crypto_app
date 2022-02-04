@@ -1,6 +1,8 @@
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+//style
+import breakpoint from "./components/breakpoints";
 //components
 import {
   Nav,
@@ -49,18 +51,22 @@ const StyledApp = styled.section`
     margin: 0;
     padding: 0;
   }
-  //
-  display: grid;
-  grid-template-columns: 2fr 7fr 3fr;
-  grid-template-rows: 1fr 10fr 1fr;
-  grid-gap: 1rem;
   padding: 3rem 3rem 0;
   color: white;
   min-height: 100vh;
   background: var(--main-gradient);
   //
-  @media (max-width: 1023px) {
-    grid-template-columns: 3fr 6fr 3fr;
+  @media only screen and (min-width: ${breakpoint.size.laptop}) {
+    display: grid;
+    grid-template-columns: 2fr 7fr 3fr;
+    grid-template-rows: 1fr 10fr 1fr;
+    grid-gap: 1rem;
+  }
+  @media only screen and (min-width: ${breakpoint.size.tabletL}) {
+    //grid-template-columns: 3fr 9fr;
+  }
+  @media only screen and (min-width: ${breakpoint.size.tablet}) {
+    // grid-template-columns: 3fr 9fr;
   }
 `;
 const Main = styled.section`

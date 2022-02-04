@@ -4,6 +4,7 @@ import { COLUMNS } from "./columns";
 import { useNavigate } from "react-router-dom";
 //style
 import styled from "styled-components";
+import breakpoint from "../breakpoints";
 
 const Table = ({ tableData, onChangeValue }) => {
   const columns = useMemo(() => COLUMNS, []);
@@ -56,8 +57,11 @@ const TableWrap = styled.div`
   display: block;
   position: relative;
   max-width: 100%;
-  max-height: 62vh;
+  max-height: 80vh;
   overflow-x: hidden;
+  @media only screen and (min-width: ${breakpoint.size.laptop}) {
+    max-height: 62vh;
+  }
 
   &::-webkit-scrollbar {
     width: 0.2rem;

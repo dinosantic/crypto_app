@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 //components
 import TopCryptos from "./TopCryptos";
 import TopNews from "./TopNews";
+import breakpoint from "./breakpoints";
 
 const Tabs = () => {
   const [toggleState, setToggleState] = useState(1);
@@ -11,7 +12,6 @@ const Tabs = () => {
   const toggleTab = (index) => {
     setToggleState(index);
   };
-
   return (
     <TabsContainer>
       <BlockTabs>
@@ -38,6 +38,9 @@ const Tabs = () => {
   );
 };
 const TabsContainer = styled.div`
+  @media only screen and (max-width: ${breakpoint.size.laptop}) {
+    display: none;
+  }
   grid-column: 3/4;
   grid-row: 2/3;
   display: flex;

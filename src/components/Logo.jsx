@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 //style
 import styled from "styled-components";
+import breakpoint from "./breakpoints";
 
 const Logo = () => {
   return (
@@ -12,7 +13,12 @@ const Logo = () => {
 };
 
 const StyledLogo = styled.span`
-  //text-3xl font-black
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  @media only screen and (min-width: ${breakpoint.size.laptop}) {
+    position: relative;
+  }
   a {
     text-decoration: none;
     color: whitesmoke;

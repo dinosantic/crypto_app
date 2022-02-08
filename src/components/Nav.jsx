@@ -33,14 +33,12 @@ const Nav = () => {
 };
 const StyledNav = styled.nav`
   position: absolute;
+  height: 100%;
   z-index: 2;
   left: 0;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   font-weight: 900;
-  && {
-    padding-top: 5rem;
-  }
   @media only screen and (min-width: ${breakpoint.size.laptop}) {
     position: relative;
     grid-column: 1/2;
@@ -49,12 +47,22 @@ const StyledNav = styled.nav`
     flex-direction: column;
     writing-mode: initial;
     text-orientation: initial;
+    && {
+      padding-top: 5rem;
+    }
   }
   ul {
     display: flex;
     flex-direction: row;
     row-gap: 1rem;
-    padding-top: 2rem;
+    justify-content: center;
+
+    @media only screen and (min-width: ${breakpoint.size.laptop}) {
+      && {
+        padding-top: 2rem;
+        justify-content: initial;
+      }
+    }
 
     li {
       list-style-type: none;

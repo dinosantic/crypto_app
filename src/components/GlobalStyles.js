@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import breakpoint from "./breakpoints";
 
 const GlobalStyles = createGlobalStyle`
 :root {
@@ -35,8 +36,11 @@ const GlobalStyles = createGlobalStyle`
             font-weight: 900;
         }
         h2 {
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: lighter;
+            @media only screen and (min-width: ${breakpoint.size.laptop}) {
+                font-size: 3rem;
+  }
         }
         h3 {
             font-size: 1.3rem;

@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 //animation
 import { motion } from "framer-motion";
 import { pageTransition } from "../components/pageTransition";
+//style
+import styled from "styled-components";
+import breakpoint from "../components/breakpoints";
 //
 import { useGetCryptosQuery } from "../services/cryptoAPI";
 //table
@@ -29,7 +32,7 @@ const CryptoC = () => {
   }
 
   return (
-    <motion.div
+    <StyledCrypto
       exit="exit"
       variants={pageTransition}
       initial="hidden"
@@ -41,8 +44,19 @@ const CryptoC = () => {
           onChangeValue={(e) => setSearchTerm(e.target.value)}
         />
       )}
-    </motion.div>
+    </StyledCrypto>
   );
 };
 
+const StyledCrypto = styled(motion.div)`
+  && {
+    padding: 3rem 3rem 0;
+  }
+
+  @media only screen and (min-width: ${breakpoint.size.laptop}) {
+    && {
+      padding: 0;
+    }
+  }
+`;
 export default CryptoC;

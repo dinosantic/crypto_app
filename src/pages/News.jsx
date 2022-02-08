@@ -53,12 +53,24 @@ const News = () => {
     </StyledNews>
   );
 };
-const StyledNews = styled(motion.section)``;
+const StyledNews = styled(motion.section)`
+  && {
+    padding: 3rem 3rem 0;
+  }
+  @media only screen and (min-width: ${breakpoint.size.laptop}) {
+    && {
+      padding: 0;
+    }
+  }
+`;
 const AllNews = styled.div`
   position: relative;
   max-width: 100%;
   max-height: 80vh;
   overflow-x: hidden;
+  && {
+    margin: 2rem 0;
+  }
   @media only screen and (min-width: ${breakpoint.size.laptop}) {
     max-height: 62vh;
   }

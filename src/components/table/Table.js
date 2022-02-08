@@ -59,10 +59,12 @@ const TableWrap = styled.div`
   max-width: 100%;
   max-height: 80vh;
   overflow-x: hidden;
+  && {
+    margin: 2rem 0;
+  }
   @media only screen and (min-width: ${breakpoint.size.laptop}) {
     max-height: 62vh;
   }
-
   &::-webkit-scrollbar {
     width: 0.2rem;
   }

@@ -7,6 +7,7 @@ import { pageTransition } from "../components/pageTransition";
 import { useGetCryptosQuery } from "../services/cryptoAPI";
 //style
 import styled from "styled-components";
+import breakpoint from "../components/breakpoints";
 //
 import Loader from "../components/Loader";
 
@@ -44,6 +45,15 @@ const Homepage = () => {
 };
 const StyledHomepage = styled(motion.section)`
   display: grid;
+  && {
+    padding: 3rem 3rem 0;
+  }
+
+  @media only screen and (min-width: ${breakpoint.size.laptop}) {
+    && {
+      padding: 0;
+    }
+  }
   h1 {
     padding-bottom: 2rem;
     text-align: center;
@@ -51,10 +61,13 @@ const StyledHomepage = styled(motion.section)`
 `;
 const StyledCrypto = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 1rem;
   && {
     margin: 2rem 0;
+  }
+  @media only screen and (min-width: ${breakpoint.size.laptop}) {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 `;
 const SingleItem = styled.div`

@@ -57,7 +57,7 @@ const CryptoDetails = () => {
   };
 
   return (
-    <motion.div
+    <StyledDetails
       exit="exit"
       variants={pageTransition}
       initial="hidden"
@@ -80,9 +80,20 @@ const CryptoDetails = () => {
           <Line data={chartData} />
         </DataWrapper>
       )}
-    </motion.div>
+    </StyledDetails>
   );
 };
+
+const StyledDetails = styled(motion.div)`
+  && {
+    padding: 3rem 3rem 0;
+  }
+  @media only screen and (min-width: ${breakpoint.size.laptop}) {
+    && {
+      padding: 0;
+    }
+  }
+`;
 const DataWrapper = styled.div`
   @media only screen and (min-width: ${breakpoint.size.laptop}) {
     position: relative;

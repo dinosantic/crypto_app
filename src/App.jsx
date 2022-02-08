@@ -51,7 +51,6 @@ const StyledApp = styled.section`
     margin: 0;
     padding: 0;
   }
-  padding: 3rem 3rem 0;
   color: white;
   min-height: 100vh;
   background: var(--main-gradient);
@@ -61,12 +60,7 @@ const StyledApp = styled.section`
     grid-template-columns: 2fr 7fr 3fr;
     grid-template-rows: 1fr 10fr 1fr;
     grid-gap: 1rem;
-  }
-  @media only screen and (min-width: ${breakpoint.size.tabletL}) {
-    //grid-template-columns: 3fr 9fr;
-  }
-  @media only screen and (min-width: ${breakpoint.size.tablet}) {
-    // grid-template-columns: 3fr 9fr;
+    padding: 3rem 3rem 0;
   }
 `;
 const Main = styled.section`

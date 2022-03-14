@@ -1,0 +1,1 @@
+App created with React, Redux Toolkit (for state managment), React Table, React Charts and Rapid API. APIs used in project: Coinranking API fro cryptocurrency info and Bing News for Cryptocurrency news.
